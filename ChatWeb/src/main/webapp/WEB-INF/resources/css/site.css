@@ -1,0 +1,537 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 06-Nov-2014, 21:55:03
+    Author     : john.ralston
+*/
+.err-out{
+    color:red;
+}
+.cen-frm.type1{
+    height:160px;
+}
+.cen-frm.type2{
+    height:390px;
+}
+.cen-frm{
+  display:inline-block;
+  padding:10px;
+  width:25%;
+  position: absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  margin: auto;
+  border:5px solid #6a9ef2;
+  border-radius:  10px;
+}
+.cen-frm form{
+  font-size:20px;
+  margin:0px;
+}
+.cen-frm h2{
+    color: #6a9ef2;
+    font-size:30px;
+    margin-top:0px;
+    margin-bottom: 5px;
+    border-bottom:3px solid #6a9ef2;
+}
+.blue {
+    color:blue;
+}
+.nav,
+.search{
+    margin-bottom:5px;
+}
+.combo{
+  display: inline;
+  width:200px;
+  position: relative;
+  cursor:pointer;
+}
+.combo input{
+  width:200px;
+}
+.combo li, .combo input{
+  padding:5px;
+  font-size: 15px;
+}
+.combo ul{
+  list-style: none;
+  display: inline-block;
+  margin: 0;
+  padding:0px;
+  width:215px;
+  position: absolute;
+  left:0px;
+  top:29px;
+  cursor:pointer;
+}
+.combo li{
+  margin: 0;
+  background-color:#6a9ef2;
+  
+}
+.combo li:not(.hidden){
+  border-bottom:2px solid #2c76ed ; 
+}
+.combo li.lastvis{
+  border-bottom:0px !important;
+}
+.hidden{
+  display:none !important;
+}
+
+.msg-box{
+  margin:0px;
+}
+.msg-box table.msg-table tr.msg-row td.msg-user,
+.msg-box table.msg-table tr.msg-row td.msg-body{
+  height:64px;
+  vertical-align: top;
+}
+.msg-box table.msg-table tr.msg-row td.msg-body{
+  padding-top:25px;
+}
+.msg-box .msg-text,
+.msg-box .msg-head
+{
+  display:inline-block;
+}
+div.msg-text{
+  margin:0px;
+  font-size:20px;
+}
+table.msg-head{
+  margin:0px;
+  font-weight: bold;
+}
+table.msg-head tr.timestamp{
+  font-size:12px;
+}
+tr.user-out{
+  height: 64px;
+  font-size:20px;
+  padding:0px;
+}
+tr.user-out td.uimg{
+  padding:0px;
+  height: 64px;
+  width:64px;
+}
+tr.user-out td.uimg img{
+  height: 64px;
+  width:64px;
+  display:block;
+  clip-path:circle( 32px at 32px );
+}
+tr.user-out td.uname{
+  padding-left: 10px;
+}
+body{
+  margin:0px;
+  padding:0px;
+}
+.scroll{
+  overflow-y:scroll;
+  border: 2px solid #cccccc;
+  box-sizing: border-box;
+}
+.clear{
+  clear:both;
+  display: inline-block;
+}
+.left{
+  display:inline-block;
+  float:left;
+}
+.right{
+  display:inline-block;
+  float:right;
+}
+.main-content{
+  margin:0px;
+  padding:0px;
+  width:100%;
+  display:inline-block;
+  position: absolute;
+  top:30px;
+  left:0px;
+  height:calc(100vh - 30px);
+}
+.main-content .sidebar,
+.main-content .page{
+  position: absolute;
+}
+.sidebar{
+  display:inline-block;
+  margin:0px;
+  width:25%;
+  height:100%;
+  border-right: 2px solid #cccccc;
+  box-shadow: 5px 0px 5px grey;
+  min-width:214px;
+  z-index: 1;
+}
+.sidebar .col-body{
+  display:inline-block;
+  margin:10px;
+  width:calc(100% - 20px);
+  height:calc(100% - 20px);
+}
+.page{
+  display:inline-block;
+  margin:0px;
+  width:75%;
+  height:100%;
+  left:25%;
+  z-index: 0;
+  min-width:642px;
+}
+@media (max-width: 856px) {
+  .page {
+    left: 214px;
+  }
+}
+.page .col-body{
+  display:inline-block;
+  margin-top:10px;
+  margin-bottom:10px;
+  margin-left:20px;
+  margin-right:20px;
+  width:calc(100% - 40px);
+  height:calc(100% - 20px);
+}
+.page .col-body h2{
+  font-size:30px;
+  margin-top:0px;
+  margin-bottom: 5px;
+}
+.main-nav{
+  position: absolute;
+  top:0px;
+  left:0px;
+  font-size: 0;
+  width:100%;
+  background-color:#6a9ef2;
+  display:inline-block;
+  height: 30px;
+}
+.search ul,
+.nav ul,
+.main-nav ul{
+  list-style: none;
+  margin:0px;
+  padding:0px;
+  display:inline-block;
+  height:30px;
+}
+.search{
+    width:100%;
+    background-color:#2c76ed;
+    display:inline-block;
+    height: 30px;
+}
+li.search-box{
+  margin:0px;
+  padding:5px 10px;
+  height:30px;
+  box-sizing: border-box;
+  color:white;
+  display:inline-block;
+  float:left;
+  font-size:20px;
+}
+.button-panel{
+    width:100%;
+    display:inline-block;
+    height: 30px;
+    margin-bottom:5px;
+}
+.button-panel .crtbtn{
+    margin-right:10px;
+}
+.nav{
+  width:100%;
+  background-color:#6a9ef2;
+  display:inline-block;
+  height: 30px;
+}
+li.nav-link{
+  margin:0px;
+  padding:5px 10px;
+  height:30px;
+  box-sizing: border-box;
+  color:white;
+  display:inline-block;
+  float:left;
+}
+li.nav-link a,
+li.nav-link a:visited{
+  color:white;
+  text-decoration: none;
+  font-size:20px;
+}
+li.nav-link.curr{
+  background-color:#2c76ed;
+}
+li.nav-link:hover{
+  background-color:#2c76ed;
+}
+
+button,
+.crtbtn,
+.crtbtn:visited{
+  border-style:none !important;
+  padding:5px 10px;
+  height:30px;
+  color:white;
+  text-decoration: none;
+  font-size:20px;
+  box-sizing: border-box;
+  background-color:#6a9ef2;
+  display:inline-block;
+  border-radius:5px;
+  font-family: "Times New Roman";
+  cursor:pointer;
+}
+button:hover,
+.crtbtn:hover{
+  background-color:#2c76ed;
+}
+.chat{
+  display:inline-block;
+  width:100%;
+  height:calc(100% - 65px);
+}
+.chat-out{
+  display:inline-block;
+  width:100%;
+  height:75%
+}
+.chat-in{
+  display:inline-block;
+  width:100%;
+  height:25%;
+}
+.chat-in h3{
+  margin-top:5px;
+  margin-bottom:5px;
+  font-size:20px;
+  height:20px;
+}
+.chat-in textarea{
+  width:100%;
+  height:calc(100% - 40px);
+  resize: none;
+}
+.account-uname{
+    height:64px;
+}
+.account-uname table{
+    margin-top:0px;
+    margin-bottom:0px;
+    margin-left:auto;
+    margin-right:auto;
+    height:64px;
+    width:194px;
+}
+.account-uname .user-out .uname{
+    width:85px;
+}
+.account{
+    height:270px;
+}
+.account-data,
+.account-mail,
+.user-grps{
+    font-size:20px;
+}
+.account-data{
+    height:91px;
+}
+.account-mail{
+    height:115px;
+}
+.account-data,
+.account-mail,
+.account-data{
+    padding-bottom:5px;
+    box-sizing: border-box;
+}
+.account-mail{
+    display:inline-block;
+    width:100%;
+}
+.mailbox{
+    width:100%;
+    border-collapse: collapse;
+    border:2px solid #6a9ef2;
+}
+.mailbox,
+.mailbox *{
+     box-sizing: border-box;
+}
+.mailbox tr{
+   height:26px; 
+}
+.mailbox thead tr{
+    background-color:#6a9ef2;
+    border-bottom:2px solid #6a9ef2;
+    color:white;
+}
+a:not(.crtbtn),
+a:not(.crtbtn):visited
+{
+    color:#595959;
+    text-decoration: none;
+}
+a:not(.crtbtn):hover{
+    text-decoration:underline;
+}
+.sidebar-grps tbody,
+.mailbox tbody{
+    border-left:2px solid #6a9ef2;
+}
+.sidebar-grps tbody tr:not(.hidden):nth-of-type(even),
+.mailbox tbody tr:not(.hidden):nth-of-type(even){
+  background-color:#b9d1f9;
+}
+.user-grps{
+    height:calc(100% - 290px);
+    margin:0px;
+}
+.user-grps .group-sec,
+.user-grps .group-bumper{
+  display:inline-block;
+  width:100%;
+  margin:0px;
+}
+.group-bumper{
+    height:5px;
+}
+.group-sec{
+    height: calc(50% - 5px);
+}
+.scroll-table{
+  display:block;
+  box-sizing: border-box;
+}
+.scroll-table *{
+  display:inline-block;
+  box-sizing: border-box;
+}
+.scroll-head .scroll-cell{
+  color:white;
+  background-color:#6a9ef2;
+  font-weight:bold;
+  text-align: center;
+}
+.scroll-head,
+.scroll-row{
+  vertical-align: top;
+  clear:both;
+  width:100% !important;
+  margin:0px;
+  padding:0px;
+}
+.scroll-head{
+  background-color:#6a9ef2;
+  border-bottom:2px solid #6a9ef2;
+  height:31px;
+}
+.scroll-cell{
+  margin:0px;
+  display:inline-block;
+  float:left;
+  padding:3px;
+  height: 100%;
+}
+.scroll-table{
+  font-size:20px;
+  border:2px solid #6a9ef2;
+  width:100%;
+  height: 100%;
+}
+.scroll-table .scroll-body {
+  overflow-y: scroll;
+  display:inline-block;
+  max-height:calc(100% - 31px);
+  width:100%;
+}
+.scroll-cell span{
+    height:100%;
+    width:100%;
+    display: inline-flex;
+    align-items: center;
+}
+.scroll-table .scroll-row{
+    height:31px;
+}
+.scroll-table.sixfour .scroll-row{
+     height:70px;
+}
+.scroll-table .scroll-body .scroll-row:not(.hidden):nth-of-type(even){
+  background-color:#b9d1f9;
+}
+.scroll-table.threeCols1 .scroll-head .scroll-cell:nth-of-type(1),
+.scroll-table.threeCols1 .scroll-row .scroll-cell:nth-of-type(1){
+    width:80%;  
+}
+.scroll-table.threeCols1 .scroll-head .scroll-cell:nth-of-type(2),
+.scroll-table.threeCols1 .scroll-row .scroll-cell:nth-of-type(2),
+.scroll-table.threeCols1 .scroll-head .scroll-cell:nth-of-type(3),
+.scroll-table.threeCols1 .scroll-row .scroll-cell:nth-of-type(3){
+    width:10%;
+}
+.scroll-table.threeCols2 .scroll-head .scroll-cell:nth-of-type(1),
+.scroll-table.threeCols2 .scroll-row .scroll-cell:nth-of-type(1){
+    width:50%;  
+}
+.scroll-table.threeCols2 .scroll-head .scroll-cell:nth-of-type(2),
+.scroll-table.threeCols2 .scroll-row .scroll-cell:nth-of-type(2){
+    width:10%;
+}
+.scroll-table.threeCols2 .scroll-head .scroll-cell:nth-of-type(3),
+.scroll-table.threeCols2 .scroll-row .scroll-cell:nth-of-type(3){
+    width:40%;
+}
+.scroll-table.threeCols3 .scroll-head .scroll-cell:nth-of-type(1),
+.scroll-table.threeCols3 .scroll-row .scroll-cell:nth-of-type(1){
+    width:50%;  
+}
+.scroll-table.threeCols3 .scroll-head .scroll-cell:nth-of-type(2),
+.scroll-table.threeCols3 .scroll-row .scroll-cell:nth-of-type(2){
+    width:40%;
+}
+.scroll-table.threeCols3 .scroll-head .scroll-cell:nth-of-type(3),
+.scroll-table.threeCols3 .scroll-row .scroll-cell:nth-of-type(3){
+    width:10%;
+}
+.scroll-table.twoCols1 .scroll-cell {
+    width:50%;  
+}
+.scroll-table.twoCols2 .scroll-head .scroll-cell:nth-of-type(1),
+.scroll-table.twoCols2 .scroll-row .scroll-cell:nth-of-type(1){
+    width:90%;  
+}
+.scroll-table.twoCols2 .scroll-head .scroll-cell:nth-of-type(2),
+.scroll-table.twoCols2 .scroll-row .scroll-cell:nth-of-type(2){
+    width:10%;  
+}
+.scroll-table.fourCols .scroll-head .scroll-cell:nth-of-type(1),
+.scroll-table.fourCols  .scroll-row .scroll-cell:nth-of-type(1),
+.scroll-table.fourCols  .scroll-head .scroll-cell:nth-of-type(2),
+.scroll-table.fourCols  .scroll-row .scroll-cell:nth-of-type(2){
+    width:40%;
+}
+.scroll-table.fourCols  .scroll-head .scroll-cell:nth-of-type(3),
+.scroll-table.fourCols  .scroll-row .scroll-cell:nth-of-type(3),
+.scroll-table.fourCols  .scroll-head .scroll-cell:nth-of-type(4),
+.scroll-table.fourCols  .scroll-row .scroll-cell:nth-of-type(4){
+    width:10%;
+}

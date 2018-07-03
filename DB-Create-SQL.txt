@@ -1,0 +1,143 @@
+# Make Database and Switch to the New Database
+CREATE SCHEMA IF NOT EXISTS `chatdb`;
+
+USE `chatdb`;
+
+# Makes the Tables for the database
+CREATE TABLE `group_member` ( 
+	`group` int(11) NOT NULL,
+	`user` varchar(45) NOT NULL, 
+	PRIMARY KEY (`group`,`user`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `groups` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group` varchar(45) NOT NULL,
+  `owner` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `requests` (
+  `group` int(11) NOT NULL,
+  `user` varchar(45) NOT NULL,
+  `type` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`group`,`user`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  
+CREATE TABLE `rooms` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `type` varchar(45) DEFAULT NULL,
+  `group` int(11) DEFAULT NULL,
+  `owner` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `users` (
+  `email` varchar(45) NOT NULL,
+  `username` varchar(45) NOT NULL,
+  `first` varchar(45) NOT NULL,
+  `last` varchar(45) NOT NULL,
+  `font` varchar(45) DEFAULT 'Times New Roman',
+  `font_color` varchar(45) DEFAULT '000000',
+  `password` varchar(45) DEFAULT NULL,
+  `account_type` varchar(45) DEFAULT 'General',
+  PRIMARY KEY (`username`),
+  UNIQUE KEY `email_UNIQUE` (`email`),
+  UNIQUE KEY `username_UNIQUE` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#------ Test/Sample Data Input Start -------
+
+#user accounts
+INSERT INTO `chatdb`.`users`
+(`email`,`username`,`first`,`last`,`font`,`font_color`,`password`,`account_type`)
+VALUES
+('admin@gmail.com','Admin', 'Admin', 'User', 'Arial', '0000FF', 'adminPass', 'Admin'),
+('madeup1@gmail.com','riptide', 'Percy', 'Jackson', 'Trebuchet MS', '0000FF', 'blueCherryCoke', 'General'),
+('madeup2@gmail.com','wisegirl', 'Annebeth', 'Chase', 'Rockwell', '000000', 'athena', 'General'),
+('madeup3@gmail.com','praetorNo1', 'Jason', 'Grace', 'Times New Roman', 'bf3fff', 'campJupiter', 'General'),
+('madeup4@gmail.com','Valdezinator', 'Leo', 'Valdez', 'Consolas', 'ff893f', 'Calypso', 'General'),
+('madeup5@gmail.com','bustersword', 'Cloud', 'Strife', 'Times New Roman', '000000', 'Aerith', 'General'),
+('madeup6@gmail.com','unsent', 'Aourn', 'FFX', 'Times New Roman', 'ff3f3f', 'summonerbraska', 'General'),
+('madeup7@gmail.com','turnsol', 'Vaan', 'FFXII', 'Times New Roman', '3fc5ff', 'skyPirate', 'General'),
+('madeup8@gmail.com','empress', 'Melia', 'Antiqua', 'Book Antiqua', '000000', 'shulk', 'General'),
+('madeup9@gmail.com','ArchadianUsurper', 'Vayne', 'Solidor', 'Times New Roman', 'ad2b2b', 'nethicite', 'General'),
+('madeup10@gmail.com','InsaneSoilder', 'Sepherioth', 'FFVII', 'Times New Roman', 'ff0202', 'shinra', 'General'),
+('madeup11@gmail.com','FutureWitness', 'Lucina', 'Awakening', 'Lucida Handwriting', '263199', 'chrom', 'General'),
+('madeup12@gmail.com','puppyKiller', 'Cruella', 'Deville', 'Georgia', '000000', 'spots', 'General'),
+('madeup13@gmail.com','Bionis', 'Zanza', 'Xenoblade', 'Cooper Black', 'a00000', 'Manodo', 'General'),
+('madeup14@gmail.com','AlteanPrince', 'Marth', 'Mystery', 'Informal Roman', '263199', 'Falchion', 'General'),
+('madeup15@gmail.com','YoungLion', 'Roy', 'Binding', 'Freestyle Script', '992626', 'eliwood', 'General'),
+('madeup16@gmail.com','KingKoopa', 'Bowser', 'Koopa', 'Centaur', '026d20', 'peach', 'General'),
+('madeup17@gmail.com','DemonKing', 'Gannondorf', 'Dragmire', 'Berlin Sans FB', '6d0202', 'triforce', 'General'),
+('madeup18@gmail.com','underworldRuler', 'Hades', 'Uprising', 'Comic Sans', '5c00fc', 'WishSeed', 'General'),
+('madeup19@gmail.com','neutralSalesman', 'Tom', 'Shopkeeper', 'Times New Roman', '000000', 'waterEaters', 'General');
+
+#groups
+INSERT INTO `chatdb`.`groups`
+(`group`,`owner`)
+VALUES
+('Fire Emblem', 'FutureWitness'),
+('Heros', 'Admin'),
+('Villans', 'Admin'),
+('Final Fantasy', 'bustersword'),
+('Riordan', 'wisegirl');
+
+#Membership
+INSERT INTO `chatdb`.`group_member`
+(`group`,`user`)
+VALUES
+(1, 'AlteanPrince'),
+(1, 'YoungLion'),
+(2, 'AlteanPrince'),
+(2, 'bustersword'),
+(2, 'empress'),
+(2, 'FutureWitness'),
+(2, 'riptide'),
+(2, 'Valdezinator'),
+(2, 'wisegirl'),
+(3, 'ArchadianUsurper'),
+(3, 'DemonKing'),
+(3, 'underworldRuler'),
+(4, 'ArchadianUsurper'),
+(4, 'InsaneSoilder'),
+(4, 'turnsol'),
+(4, 'unsent'),
+(5, 'praetorNo1'),
+(5, 'riptide'),
+(5, 'Valdezinator');
+
+#Invites
+INSERT INTO `chatdb`.`requests`
+(`group`,`user`,`type`)
+VALUES
+(1, 'Admin', 'INVITE'),
+(4, 'Admin', 'INVITE'),
+(2, 'praetorNo1', 'INVITE'),
+(2, 'YoungLion', 'INVITE'),
+(3, 'puppyKiller', 'INVITE'),
+(3, 'Bionis', 'INVITE');
+
+#Requests
+INSERT INTO `chatdb`.`requests`
+(`group`,`user`,`type`)
+VALUES
+(5, 'Admin', 'REQUEST'),
+(2, 'turnsol', 'REQUEST'),
+(2, 'unsent', 'REQUEST'),
+(3, 'InsaneSoilder', 'REQUEST'),
+(3, 'KingKoopa', 'REQUEST');
+
+#ChatRooms
+INSERT INTO `chatdb`.`rooms`
+(`name`,`type`,`group`,`owner`)
+VALUES
+('General Chat', 'PUBLIC', '0', 'Admin'),
+('Hero Chat', 'GROUP', '2', 'Admin'),
+('Villan Chat', 'GROUP', '3', 'Admin');
+
+
+
+
+
